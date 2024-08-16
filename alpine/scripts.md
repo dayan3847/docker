@@ -7,7 +7,7 @@ docker run -it --rm alpine sh
 ````
 
 ````shell
-docker build -t "dayan3847/alpine:bash" ./bash
+docker build -t "dayan3847/alpine:bash" ./alpine_bash
 ````
 
 ````shell
@@ -28,4 +28,8 @@ docker run --rm -v "$PWD:/home/app" dayan3847/alpine:bash ls -la .
 
 ````shell
 docker run -it --rm dayan3847/alpine:bash bash
+````
+
+````shell
+docker run --security-opt seccomp=unconfined -it --rm -v "$PWD:/home/app" -w /home/app alpine sh
 ````

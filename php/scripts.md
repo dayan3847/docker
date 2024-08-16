@@ -29,3 +29,7 @@ docker run --rm -v "$PWD:/var/www/html" dayan3847/php:7.4 ls -la .
 ````shell
 docker run -it --rm dayan3847/php:7.4 bash
 ````
+
+````shell
+docker run -it --rm -v "$PWD:/var/www/html" dayan3847/php:7.4 bash
+````

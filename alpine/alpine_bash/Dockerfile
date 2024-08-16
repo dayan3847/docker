@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk add --no-cache bash openssl
 
-RUN mkdir /home/app
+RUN mkdir -p /home/app
 
 WORKDIR /home/app
 
