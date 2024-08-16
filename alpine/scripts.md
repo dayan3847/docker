@@ -31,5 +31,5 @@ docker run -it --rm dayan3847/alpine:bash bash
 ````
 
 ````shell
-docker run --security-opt seccomp=unconfined -it --rm -v "$PWD:/home/app" -w /home/app alpine sh
+docker run -it --rm -v "$PWD:/home/app" -w /home/app alpine sh
 ````
