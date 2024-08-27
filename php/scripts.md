@@ -31,5 +31,19 @@ docker run -it --rm dayan3847/php:7.4 bash
 ````
 
 ````shell
+docker run -it --rm php bash
+````
+
+````shell
+docker run -it --rm -v "$PWD:/var/www/html" php bash
+````
+
+````shell
 docker run -it --rm -v "$PWD:/var/www/html" dayan3847/php:7.4 bash
+````
+
+
+
+````shell
+docker build -t "dayan3847/php:latest" ./php_latest
 ````
