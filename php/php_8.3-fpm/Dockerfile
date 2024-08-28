@@ -4,11 +4,15 @@ RUN apt update
 RUN apt upgrade -y
 
 # dependencies extensions
-RUN apt install -y libicu-dev
+RUN apt install -y libicu-dev # intl
+RUN apt install -y libpng-dev libjpeg-dev libfreetype6-dev zlib1g-dev # gd
+RUN apt install -y libzip-dev # zip
 
 # extensions
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install intl
+RUN docker-php-ext-install gd
+RUN docker-php-ext-install zip
 
 # Install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -17,9 +21,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
 
-#RUN mkdir /var/www/.composer && chown www-data:www-data /var/www/.composer
-
-USER www-data
+RUN mkdir /var/www/.composer && chown www-data:www-data /var/www/.composer
 
 WORKDIR /var/www/html
 
