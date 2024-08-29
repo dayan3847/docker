@@ -46,6 +46,11 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 RUN pear install PHP_CodeSniffer
 
+# Only for development
+RUN pecl install xdebug-3.1.6;
+RUN docker-php-ext-enable xdebug;
+RUN apk --no-cache add bind-tools
+
 WORKDIR /var/www/html
 
 VOLUME [ "/var/www/html" ]
