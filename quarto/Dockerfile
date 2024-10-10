@@ -16,5 +16,7 @@ RUN pip3 install jupyter
 RUN pip3 install plotly
 RUN pip3 install statsmodels
 
+RUN quarto install tinytex
+
 VOLUME /app
 WORKDIR /app
