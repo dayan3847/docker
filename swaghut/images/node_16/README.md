@@ -18,3 +18,17 @@ docker build -t "$IMAGE_NAME" .
 echo "Pushing image: $IMAGE_NAME"
 docker push "$IMAGE_NAME"
 ```
+
+# dayan3847
+
+## Tag
+
+```shell
+docker tag "swaghut/node:16" "dayan3847/node:16"
+```
+
+## Push
+
+```shell
+docker push "dayan3847/node:16"
+```
