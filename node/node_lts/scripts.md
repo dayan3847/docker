@@ -3,11 +3,17 @@ docker pull node:lts
 ````
 
 ````shell
-docker run -it --rm node:lts sh
+docker run -it --rm node:lts bash
 ````
+
+## build
 
 ````shell
 docker build -t "dayan3847/node:lts" .
+````
+
+````shell
+docker build --no-cache -t "dayan3847/node:lts" .
 ````
 
 ````shell
@@ -27,9 +33,15 @@ docker run --rm "dayan3847/node:lts" pwd
 ````
 
 ````shell
-docker run -it --rm "dayan3847/node:lts" bash
+docker run --rm "dayan3847/node:lts" ls -la
 ````
 
 ````shell
-docker run --rm -v "$PWD:/app/" "dayan3847/node:lts" ls -la
+docker run -it --rm "dayan3847/node:lts" bash
+````
+
+## Create for devcontainer
+
+````shell
+docker run --name "node_lts" -it --rm "dayan3847/node:lts" bash
 ````

@@ -1,15 +1,17 @@
 FROM node:lts
 
-RUN npm install -g npm
+RUN apt update
+RUN apt upgrade -y
 
+RUN npm install -g npm
 RUN npm install -g pnpm
 
-RUN mkdir -p /var/www/app/
-RUN mkdir -p /var/www/.npm/_logs/
-RUN chown -R www-data:www-data /var/www
+USER node
+RUN mkdir -p /home/node/workspace
+RUN mkdir -p /home/node/.npm/_logs
 
-WORKDIR /var/www/app/
+WORKDIR /home/node/workspace
 
-VOLUME [ "/var/www/app/" ]
+VOLUME [ "/home/node/workspace", "/home/node/.npm/_logs" ]
 
-USER www-data
+CMD [ "bash" ]
