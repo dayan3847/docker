@@ -43,5 +43,19 @@ docker run -it --rm "dayan3847/node:lts" bash
 ## Create for devcontainer
 
 ````shell
-docker run --name "node_lts" -it --rm "dayan3847/node:lts" bash
+docker run --name "node_lts" -it "dayan3847/node:lts" bash
+````
+
+# start container
+
+````shell
+docker start "node_lts"
+````
+
+````shell
+docker exec -it "node_lts" bash
+````
+
+````shell
+docker buildx build --platform linux/amd64,linux/arm64 -t dayan3847/node:lts --load .
 ````
