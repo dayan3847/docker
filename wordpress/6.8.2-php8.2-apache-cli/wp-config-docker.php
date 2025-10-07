@@ -134,8 +134,18 @@ if (file_exists(__DIR__ . '/wp-content/wp-config-extra-content.php')) {
 }
 
 // Include an optional extra config file if it exists (git)
-if (file_exists(dirname(__DIR__) . '/vol/wp-config-extra-git.php')) {
-    require_once dirname(__DIR__) . '/vol/wp-config-extra-git.php';
+if (file_exists(dirname(__DIR__) . '/vol/config/wp-config-extra.php')) {
+    require_once dirname(__DIR__) . '/vol/config/wp-config-extra.php';
+}
+
+/** Debugging */
+if ( ! defined( 'WP_DEBUG_LOG' ) ) {
+    define( 'WP_DEBUG_LOG', WP_DEBUG ? '/var/www/vol/svc/log/wordpress/debug.log' : false);
+    // define( 'WP_DEBUG_LOG', !!getenv_docker('WORDPRESS_DEBUG_LOG', '') );
+}
+if ( ! defined( 'WP_DEBUG_DISPLAY' ) ) {
+    define( 'WP_DEBUG_DISPLAY', !!getenv_docker('WORDPRESS_DEBUG_DISPLAY', '') );
+    @ini_set('display_errors', WP_DEBUG_DISPLAY ? 1 : 0);
 }
 
 /* That's all, stop editing! Happy publishing. */

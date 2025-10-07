@@ -10,11 +10,11 @@ RUN chown rstudio /app
 
 USER rstudio
 
-RUN pip3 install pandas
-RUN pip3 install seaborn
-RUN pip3 install jupyter
-RUN pip3 install plotly
-RUN pip3 install statsmodels
+#RUN pip install pandas
+#RUN pip install seaborn
+#RUN pip install jupyter
+#RUN pip install plotly
+#RUN pip install statsmodels
 
 RUN quarto install tinytex
 

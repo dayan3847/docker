@@ -8,6 +8,10 @@ if [[ -n "${APACHE_SERVER_NAME}" ]]; then
   fi
 fi
 
+if [[ -f "/var/www/vol/config/.htaccess" ]]; then
+    cp -f /var/www/vol/config/.htaccess /var/www/html/.htaccess
+fi
+
 chown -R www-data:www-data /var/www
 
 # docker image inspect wordpress:6.8.2-php8.4-apache --format='{{json .Config.Entrypoint}}'

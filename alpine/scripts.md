@@ -1,35 +1,43 @@
-````shell
-docker pull alpine:latest
-````
+```bash
+docker pull alpine
+```
 
-````shell
+```bash
 docker run -it --rm alpine sh
-````
+```
 
-````shell
-docker build -t "dayan3847/alpine:bash" ./alpine_bash
-````
+```bash
+docker run -it --rm alpine cat /etc/passwd
+```
 
-````shell
-docker push "dayan3847/alpine:bash"
-````
+```bash
+docker run -it --rm alpine cat /etc/group
+```
 
-````shell
-docker run --rm dayan3847/alpine:bash id
-````
+```bash
+docker build -t "dayan3847/alpine" .
+```
 
-````shell
-docker run --rm dayan3847/alpine:bash pwd
-````
+```bash
+docker push "dayan3847/alpine"
+```
 
-````shell
-docker run --rm -v "$PWD:/home/app" dayan3847/alpine:bash ls -la .
-````
+```bash
+docker run -it --rm "dayan3847/alpine" sh
+```
 
-````shell
-docker run -it --rm dayan3847/alpine:bash bash
-````
+```bash
+docker run -it --rm "dayan3847/alpine" id alpine
+```
 
-````shell
-docker run -it --rm -v "$PWD:/home/app" -w /home/app alpine sh
-````
+```bash
+docker run -it --rm "dayan3847/alpine" id www-data-u
+```
+
+```bash
+docker run -it --rm "dayan3847/alpine" cat /etc/passwd
+```
+
+```bash
+docker run -it --rm "dayan3847/alpine" cat /etc/group
+```

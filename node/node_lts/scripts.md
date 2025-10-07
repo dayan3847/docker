@@ -14,10 +14,23 @@ docker buildx build --platform linux/amd64,linux/arm64,windows/amd64 -t "dayan38
 
 ## Build
 
+```bash
+docker build -t "dayan3847/node:lts" .
+```
+
+## push
+
+```bash
+docker push "dayan3847/node:lts"
+```
+
+## Build
+
 ### Linux
 
 ````shell
 docker build -t "dayan3847/node:lts-linux" .
+#docker build -t "dayan3847/node:lts" .
 ````
 
 ````shell

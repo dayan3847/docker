@@ -19,17 +19,13 @@ RUN mkdir -p /var/www/.wp-cli/cache
 RUN chown -R www-data:www-data /var/www/.wp-cli
 
 COPY --chown=root:root --chmod=755 ./docker-entrypoint.bash /usr/local/bin/docker-entrypoint.bash
-COPY --chown=www-data:www-data --chmod=644 ./wp-config-extra.php  /var/www/html/wp-config-extra.php
+COPY --chown=www-data:www-data --chmod=644 ./wp-config-docker.php  /var/www/html/wp-config-docker.php
 
 ENV APACHE_LOG_DIR=/var/www/vol/svc/log/apache2
 
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 RUN sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 5M/' /usr/local/etc/php/php.ini
 
-#ENV WORDPRESS_WP_HOME;
-#ENV WORDPRESS_WP_SITEURL;
-#ENV WORDPRESS_WP_DEBUG_LOG;
-#ENV WORDPRESS_WP_DEBUG_DISPLAY;
 #ENV APACHE_SERVER_NAME;
 
 # "./volumes/www/html/wp-content:/var/www/html/wp-content"

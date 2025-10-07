@@ -138,6 +138,16 @@ if (file_exists(dirname(__DIR__) . '/vol/wp-config-extra-git.php')) {
     require_once dirname(__DIR__) . '/vol/wp-config-extra-git.php';
 }
 
+/** Debugging */
+if ( ! defined( 'WP_DEBUG_LOG' ) ) {
+    define( 'WP_DEBUG_LOG', !!getenv_docker('WORDPRESS_DEBUG_LOG', '') );
+}
+
+if ( ! defined( 'WP_DEBUG_DISPLAY' ) ) {
+    define( 'WP_DEBUG_DISPLAY', !!getenv_docker('WORDPRESS_DEBUG_DISPLAY', '') );
+    @ini_set('display_errors', WP_DEBUG_DISPLAY ? 1 : 0);
+}
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */

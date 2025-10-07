@@ -11,5 +11,9 @@ docker push "dayan3847/wordpress:6.8.2-php8.2-apache-cli"
 ```
 
 ```bash
+docker pull "dayan3847/wordpress:6.8.2-php8.2-apache-cli"
+```
+
+```bash
 docker run --rm "dayan3847/wordpress:6.8.2-php8.2-apache-cli"
 ```

@@ -1,0 +1,22 @@
+# BEGIN Deny files
+
+<FilesMatch "\.log$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^(composer\.(json|lock))$">
+    Require all denied
+</FilesMatch>
+
+# END Deny files
+
+# BEGIN WordPress
+
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+# END WordPress

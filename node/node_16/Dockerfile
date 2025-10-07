@@ -1,7 +1,7 @@
 FROM node:16.3.0
 
 RUN apt update
-RUN apt upgrade -y
+#RUN apt upgrade -y
 
 USER node
 RUN mkdir -p /home/node/workspace

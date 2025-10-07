@@ -1,0 +1,6 @@
+name: my_alpine_projects
+services:
+  alpine_a:
+    image: alpine:latest
+    restart: always
+    entrypoint: ["sh", "-c", "while true; do echo 'Hello from Alpine A'; sleep 5; done"]
