@@ -8,15 +8,16 @@ RUN apt install -y unzip
 RUN apt install -y pv
 RUN apt install -y git
 RUN apt install -y rsync
+RUN apt install -y wget
+RUN apt install -y subversion
 
 RUN pecl install xdebug
 
-# wp-cli
+# wp-cli https://wp-cli.org/#installing
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-    && chmod +x wp-cli.phar \
-    && mv wp-cli.phar /usr/local/bin/wp
-RUN mkdir -p /var/www/.wp-cli/cache
-RUN chown -R www-data:www-data /var/www/.wp-cli
+ && chmod +x wp-cli.phar \
+ && mv wp-cli.phar /usr/local/bin/wp \
+ && mkdir -p /var/www/.wp-cli/cache
 
 COPY --chown=root:root --chmod=755 ./docker-entrypoint.bash /usr/local/bin/docker-entrypoint.bash
 COPY --chown=www-data:www-data --chmod=644 ./wp-config-docker.php  /var/www/html/wp-config-docker.php
