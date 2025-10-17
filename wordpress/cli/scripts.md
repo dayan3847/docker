@@ -19,3 +19,9 @@ docker pull wordpress:cli-2.12.0
 docker pull wordpress:6.8.3-fpm-alpine
 docker pull wordpress:6.8.2-fpm-alpine
 ```
+
+```bash
+docker run -itd --rm \
+  --name wp-cli \
+  "dayan3847/wordpress:6.8.3-cli"
+```

@@ -26,3 +26,9 @@ ENV ENV="production"
 USER "wp"
 
 VOLUME ["/var/www/html/wp-content", "/vol"]
+
+# docker pull wordpress:cli
+# docker image inspect wordpress:cli --format='{{json .Config.Entrypoint}}'
+# docker image inspect wordpress:cli --format='{{json .Config.Cmd}}'
+ENTRYPOINT []
+CMD ["sleep", "infinity"]

@@ -35,6 +35,13 @@ RUN apt install -y subversion
 
 RUN pecl install xdebug
 
+# wp-cli https://wp-cli.org/#installing
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+ && chmod +x wp-cli.phar \
+ && mv wp-cli.phar /usr/local/bin/wp \
+ && mkdir -p /var/www/.wp-cli/cache \
+ && chown -R wp:wp /var/www/.wp-cli
+
 COPY --chmod=644 --chown=root:root ./config/rsyncd.conf /etc/rsyncd.conf
 COPY --chmod=644 --chown=root:root ./config/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 COPY --chmod=755 --chown=root:root ./config/docker-entrypoint-before.bash /usr/local/bin/docker-entrypoint-before.bash

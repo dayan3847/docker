@@ -18,3 +18,10 @@ docker build --debug --tag "dayan3847/wordpress:6.8.2-apache" --build-arg "V=6.8
 docker pull wordpress:6.8.3-apache
 docker pull wordpress:6.8.2-apache
 ```
+
+## Push
+
+```bash
+docker push "dayan3847/wordpress:6.8.3-apache"
+docker push "dayan3847/wordpress:6.8.2-apache"
+```
